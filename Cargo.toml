@@ -1,0 +1,23 @@
+[package]
+name = "rust-esp32-c3-blinky"
+version = "0.1.0"
+authors = ["Shahriyar Nasir <contact@snasir.ca>"]
+edition = "2018"
+resolver = "2"
+
+[profile.release]
+opt-level = "s"
+
+[profile.dev]
+debug = true # Symbols are nice and they don't increase the size on Flash
+opt-level = "z"
+
+[dependencies]
+anyhow = { version = "1", features = ["backtrace"] }
+embedded-hal = "1.0.0-alpha.8"
+esp-idf-hal = "0.38"
+esp-idf-sys = { version = "0.31.6", features = ["binstart"] }
+
+[build-dependencies]
+embuild = "0.29"
+anyhow = "1"
