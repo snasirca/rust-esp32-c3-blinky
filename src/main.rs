@@ -29,6 +29,8 @@ const MQTT_HOST: &str = env!("RUST_ESP32_MQTT_HOST");
 const MQTT_PORT: &str = env!("RUST_ESP32_MQTT_PORT");
 
 fn main() {
+    sensible_env_logger::init!();
+
     let peripherals = Peripherals::take().unwrap();
     let mut led = peripherals.pins.gpio4.into_output().unwrap();
 

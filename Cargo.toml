@@ -20,6 +20,7 @@ esp-idf-hal = "0.38"
 esp-idf-svc = "0.42.0"
 esp-idf-sys = { version = "0.31.6", features = ["binstart"] }
 log = "0.4"
+sensible-env-logger = "0.2.0"
 
 [build-dependencies]
 embuild = "0.29"
