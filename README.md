@@ -8,6 +8,12 @@ To flash this project, run this command:
 
 Substitute with the device name of your board.
 
-# Credits
+## Additional Examples
+
+* Demonstrates how to connect to a Wifi network
+* Demonstrates how to publish an MQTT message
+* Demonstrates how to go to sleep
+
+## Credits
 
 This project has been heavily inspired by the [Rust on ESP32 STD demo app](https://github.com/ivmarkov/rust-esp32-std-demo#rust-on-esp32-std-demo-app)
