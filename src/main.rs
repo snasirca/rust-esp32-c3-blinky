@@ -44,14 +44,17 @@ fn main() {
     .unwrap();
     let _mqtt_client = start_mqtt_client().unwrap();
 
-    loop {
-        led.set_high().unwrap();
-        thread::sleep(Duration::from_millis(1000));
+    led.set_high().unwrap();
+    thread::sleep(Duration::from_millis(1000));
 
-        led.set_low().unwrap();
-        thread::sleep(Duration::from_millis(1000));
+    led.set_low().unwrap();
+    thread::sleep(Duration::from_millis(1000));
 
-        println!("HELLO WORLD!")
+    println!("HELLO WORLD!");
+
+    unsafe {
+        info!("About to get to sleep now. Will wake up automatically in 5 seconds");
+        esp_idf_sys::esp_deep_sleep(Duration::from_secs(5).as_micros() as u64);
     }
 }
 
