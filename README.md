@@ -12,7 +12,7 @@ Substitute with the device name of your board.
 
 * Demonstrates how to connect to a Wifi network
 * Demonstrates how to publish an MQTT message
-* Demonstrates how to go to sleep
+* Demonstrates how to go to deep sleep
 
 ## Credits
 
