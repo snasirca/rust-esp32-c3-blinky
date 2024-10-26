@@ -1,27 +1,19 @@
 [package]
-name = "rust-esp32-c3-blinky"
+name = "rust-test"
 version = "0.1.0"
 authors = ["Shahriyar Nasir <contact@snasir.ca>"]
-edition = "2018"
-resolver = "2"
-
-[profile.release]
-opt-level = "s"
-
-[profile.dev]
-debug = true # Symbols are nice and they don't increase the size on Flash
-opt-level = "z"
+edition = "2021"
 
 [dependencies]
-anyhow = { version = "1", features = ["backtrace"] }
-embedded-hal = "1.0.0-alpha.8"
-embedded-svc = "0.22.0"
-esp-idf-hal = "0.38"
-esp-idf-svc = "0.42.0"
-esp-idf-sys = { version = "0.31.6", features = ["binstart"] }
-log = "0.4"
-sensible-env-logger = "0.2.0"
+# Embassy
+embassy-executor = { version = "0.5", features = ["task-arena-size-81920"]  }
+embassy-time = { version = "0.3", features = ["generic-queue"] }
 
-[build-dependencies]
-embuild = "0.29"
-anyhow = "1"
+# ESP specifics
+esp-hal = { version = "0.19", features = ["esp32c3", "async"] }
+esp-hal-embassy = { version = "0.2", features = ["esp32c3", "executors"] }
+esp-backtrace = { version = "0.13", features = ["esp32c3", "panic-handler", "exception-handler", "println"] }
+esp-println = { version = "0.10", features = ["esp32c3"] }
+
+# Static objects
+static_cell = { version = "2" }

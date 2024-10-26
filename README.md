@@ -4,15 +4,21 @@ An example Rust project that uses pin GPIO4 on an ESP32-C3 board to blink an LED
 
 To flash this project, run this command:
 
-    cargo espflash /dev/cu.usbserial-220 --monitor --speed 921600
+    cargo espflash $(ls /dev/cu.usbserial-* | head -n 1) --monitor
 
-Substitute with the device name of your board.
+Or
+
+    cargo run --release
 
 ## Additional Examples
 
 * Demonstrates how to connect to a Wifi network
 * Demonstrates how to publish an MQTT message
 * Demonstrates how to go to deep sleep
+
+## Espressif docs
+
+* [ESP32-C3-DevKitC-02](https://docs.espressif.com/projects/esp-dev-kits/en/latest/esp32c3/esp32-c3-devkitc-02/user_guide.html#hardware-reference)
 
 ## Credits
 
