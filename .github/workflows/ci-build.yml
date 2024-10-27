@@ -1,0 +1,30 @@
+name: CI Build for ESP32-C3
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  schedule:
+    - cron: '0 3 * * *' # Runs every day at 03:00 UTC
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Rust setup
+      run: rustup toolchain install stable --profile minimal
+
+    - name: Build project
+      run: |
+        cargo build --release
+
+    - name: Test build output
+      run: |
+        ls -l target/riscv32imc-unknown-none-elf/release/

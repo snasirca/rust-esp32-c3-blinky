@@ -1,3 +1,5 @@
+[![CI Build for ESP32-C3](https://github.com/snasirca/rust-esp32-c3-blinky/actions/workflows/ci-build.yml/badge.svg)](https://github.com/snasirca/rust-esp32-c3-blinky/actions/workflows/ci-build.yml)
+
 # Rust ESP32-C3 Blinky
 
 An example Rust project that uses pin GPIO4 on an ESP32-C3 board to blink an LED and print some text to the serial bus.
