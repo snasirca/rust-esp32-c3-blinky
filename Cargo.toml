@@ -11,12 +11,6 @@ embassy-sync = { version = "0.6" }
 embassy-time = { version = "0.3", features = ["generic-queue"] }
 embassy-net = { version = "0.4", features = ["dhcpv4", "dns", "tcp", "udp"] }
 
-# # Hardware Abstraction Layer
-# embedded-hal = { version = "1" }
-# embedded-hal-async = { version = "1" }
-# embedded-hal-bus = { version = "0.1", features = ["async"] }
-# embedded-io-async = { version = "0.6" }
-
 # ESP specifics
 esp-alloc = { version = "0.5" }
 esp-hal = { version = "0.21", features = ["esp32c3"] }
@@ -30,9 +24,3 @@ log = { version = "0.4" }
 
 # Static objects
 static_cell = { version = "2" }
-
-# Heapless data types
-heapless = { version = "0.8" }
-
-# Random
-rand_core = { version = "0.6" }

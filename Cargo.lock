@@ -1056,9 +1056,7 @@ dependencies = [
  "esp-hal-embassy",
  "esp-println",
  "esp-wifi",
- "heapless",
  "log",
- "rand_core",
  "static_cell",
 ]
 
