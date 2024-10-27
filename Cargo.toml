@@ -1,5 +1,5 @@
 [package]
-name = "rust-test"
+name = "rust-esp32-c3-blinky"
 version = "0.1.0"
 authors = ["Shahriyar Nasir <contact@snasir.ca>"]
 edition = "2021"
@@ -7,13 +7,31 @@ edition = "2021"
 [dependencies]
 # Embassy
 embassy-executor = { version = "0.5", features = ["task-arena-size-81920"]  }
+embassy-sync = { version = "0.6" }
 embassy-time = { version = "0.3", features = ["generic-queue"] }
+embassy-net = { version = "0.4", features = ["dhcpv4", "dns", "tcp", "udp"] }
+
+# # Hardware Abstraction Layer
+# embedded-hal = { version = "1" }
+# embedded-hal-async = { version = "1" }
+# embedded-hal-bus = { version = "0.1", features = ["async"] }
+# embedded-io-async = { version = "0.6" }
 
 # ESP specifics
 esp-hal = { version = "0.19", features = ["esp32c3", "async"] }
 esp-hal-embassy = { version = "0.2", features = ["esp32c3", "executors"] }
 esp-backtrace = { version = "0.13", features = ["esp32c3", "panic-handler", "exception-handler", "println"] }
 esp-println = { version = "0.10", features = ["esp32c3"] }
+esp-wifi = { version = "0.7", features = ["esp32c3", "wifi", "async", "tcp", "ipv4", "dhcpv4", "embassy-net"] }
+
+# Logging
+log = { version = "0.4" }
 
 # Static objects
 static_cell = { version = "2" }
+
+# Heapless data types
+heapless = { version = "0.8" }
+
+# Random
+rand_core = { version = "0.6" }

@@ -1,6 +1,8 @@
 #![no_std]
 #![no_main]
 
+use core::convert::Infallible;
+
 use embassy_executor::Spawner;
 use embassy_time::Timer;
 
@@ -31,6 +33,13 @@ async fn one_second_task() {
 
 #[main]
 async fn main(spawner: Spawner) {
+    if let Err(error) = main_fallible(&spawner).await {
+        esp_println::println!("Error while running firmware: {error:?}");
+    }
+}
+
+/// Main task that can return an error
+async fn main_fallible(spawner: &Spawner) -> Result<(), Error> {
     let peripherals = Peripherals::take();
     let system = SystemControl::new(peripherals.SYSTEM);
 
@@ -53,4 +62,10 @@ async fn main(spawner: Spawner) {
         count += 1;
         Timer::after_millis(5_000).await;
     }
+}
+
+#[derive(Debug)]
+enum Error {
+    /// An impossible error existing only to satisfy the type system
+    Impossible(Infallible),
 }
