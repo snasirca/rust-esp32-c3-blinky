@@ -6,7 +6,7 @@ edition = "2021"
 
 [dependencies]
 # Embassy
-embassy-executor = { version = "0.5", features = ["task-arena-size-81920"]  }
+embassy-executor = { version = "0.6", features = ["task-arena-size-81920"]  }
 embassy-sync = { version = "0.6" }
 embassy-time = { version = "0.3", features = ["generic-queue"] }
 embassy-net = { version = "0.4", features = ["dhcpv4", "dns", "tcp", "udp"] }
@@ -18,11 +18,11 @@ embassy-net = { version = "0.4", features = ["dhcpv4", "dns", "tcp", "udp"] }
 # embedded-io-async = { version = "0.6" }
 
 # ESP specifics
-esp-hal = { version = "0.19", features = ["esp32c3", "async"] }
-esp-hal-embassy = { version = "0.2", features = ["esp32c3", "executors"] }
-esp-backtrace = { version = "0.13", features = ["esp32c3", "panic-handler", "exception-handler", "println"] }
-esp-println = { version = "0.10", features = ["esp32c3", "log", "auto", "colors"] }
-esp-wifi = { version = "0.7", features = ["esp32c3", "wifi", "async", "tcp", "ipv4", "dhcpv4", "embassy-net"] }
+esp-hal = { version = "0.21", features = ["esp32c3"] }
+esp-hal-embassy = { version = "0.4", features = ["esp32c3", "executors"] }
+esp-backtrace = { version = "0.14", features = ["esp32c3", "panic-handler", "exception-handler", "println"] }
+esp-println = { version = "0.12", features = ["esp32c3", "log", "auto", "colors"] }
+esp-wifi = { version = "0.10", features = ["esp32c3", "wifi", "async", "tcp", "ipv4", "dhcpv4", "embassy-net"] }
 
 # Logging
 log = { version = "0.4" }
