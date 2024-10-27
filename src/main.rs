@@ -3,6 +3,9 @@
 
 use core::convert::Infallible;
 
+use log::error;
+use log::info;
+
 use embassy_executor::Spawner;
 use embassy_time::Timer;
 
@@ -19,13 +22,16 @@ use esp_hal::{
 
 use static_cell::StaticCell;
 
+mod logging;
+use self::logging::setup as setup_logging;
+
 static TIMERS: StaticCell<[OneShotTimer<ErasedTimer>; 1]> = StaticCell::new();
 
 #[embassy_executor::task]
 async fn one_second_task() {
     let mut count = 0;
     loop {
-        esp_println::println!("Spawn Task Count: {}", count);
+        info!("Spawn Task Count: {}", count);
         count += 1;
         Timer::after_millis(1_000).await;
     }
@@ -33,8 +39,10 @@ async fn one_second_task() {
 
 #[main]
 async fn main(spawner: Spawner) {
+    setup_logging();
+
     if let Err(error) = main_fallible(&spawner).await {
-        esp_println::println!("Error while running firmware: {error:?}");
+        error!("Error while running firmware: {error:?}");
     }
 }
 
@@ -57,7 +65,7 @@ async fn main_fallible(spawner: &Spawner) -> Result<(), Error> {
 
     let mut count = 0;
     loop {
-        esp_println::println!("Main Task Count: {}", count);
+        info!("Main Task Count: {}", count);
         led.toggle();
         count += 1;
         Timer::after_millis(5_000).await;

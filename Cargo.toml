@@ -21,7 +21,7 @@ embassy-net = { version = "0.4", features = ["dhcpv4", "dns", "tcp", "udp"] }
 esp-hal = { version = "0.19", features = ["esp32c3", "async"] }
 esp-hal-embassy = { version = "0.2", features = ["esp32c3", "executors"] }
 esp-backtrace = { version = "0.13", features = ["esp32c3", "panic-handler", "exception-handler", "println"] }
-esp-println = { version = "0.10", features = ["esp32c3"] }
+esp-println = { version = "0.10", features = ["esp32c3", "log", "auto", "colors"] }
 esp-wifi = { version = "0.7", features = ["esp32c3", "wifi", "async", "tcp", "ipv4", "dhcpv4", "embassy-net"] }
 
 # Logging

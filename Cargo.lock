@@ -578,6 +578,7 @@ checksum = "58cd4fa834980ba64aad00a5c2c1a630020af984eadef65a125cb99085f6f54c"
 dependencies = [
  "critical-section",
  "esp-build",
+ "log",
  "portable-atomic",
 ]
 
