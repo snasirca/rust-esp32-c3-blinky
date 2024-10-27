@@ -14,6 +14,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+    env:
+      WIFI_SSID: "some_wifi_ssid"
+      WIFI_PASS: "some_wifi_pass"
+
     steps:
     - name: Checkout code
       uses: actions/checkout@v2

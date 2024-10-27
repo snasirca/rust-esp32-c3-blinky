@@ -18,6 +18,7 @@ embassy-net = { version = "0.4", features = ["dhcpv4", "dns", "tcp", "udp"] }
 # embedded-io-async = { version = "0.6" }
 
 # ESP specifics
+esp-alloc = { version = "0.5" }
 esp-hal = { version = "0.21", features = ["esp32c3"] }
 esp-hal-embassy = { version = "0.4", features = ["esp32c3", "executors"] }
 esp-backtrace = { version = "0.14", features = ["esp32c3", "panic-handler", "exception-handler", "println"] }
